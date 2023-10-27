@@ -71,3 +71,11 @@
     color: #333333;
     cursor: not-allowed;
 }
+
+.alert-error, .errorlist {
+    color: crimson;
+}
+
+.alert-success {
+    color: green;
+}

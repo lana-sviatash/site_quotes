@@ -24,6 +24,15 @@
                 {% endfor %}
                 {% endfor %}
             </div>
+            
+<!-- Перевірити варіанти вирішення -->
+            <!-- {% if user.is_authenticated %} -->
+                <!-- <form method="post" action="{% url 'quotes:delete_quote' quote.id %}"> -->
+                    <!-- {% csrf_token %} -->
+                    <!-- <button class="btn btn-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Delete</button> -->
+                <!-- </form> -->
+            <!-- {% endif %} -->
+
         </div>
             {% endfor %}
         <nav>
