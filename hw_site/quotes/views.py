@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
@@ -6,7 +6,7 @@ from django.urls import reverse
 from .forms import AuthorForm, QuoteForm
 from .models import Quote, Author, Tag
 
-
+from bson import ObjectId
 from .utils import get_mongodb
 
 # # Create your views here.
@@ -75,3 +75,15 @@ def delete_quote(request, id_):
     except Quote.DoesNotExist:
         pass
     return redirect('quotes:root')
+
+
+# def author_detail(request, id_):
+#     author = get_object_or_404(Author, id=id_)
+#     return render(request, 'quotes/author_detail.html', context={'author': author})
+
+def author_detail(request, id_):
+    db = get_mongodb()
+    author = db.authors.find_one({'_id': ObjectId(id_)})
+    return render(request, 'quotes/author_detail.html', context={'author': author})
+
+
