@@ -24,11 +24,13 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
+
 class LoginForm(AuthenticationForm):
 
     class Meta:
         model = User
         fields = ['username', 'password']
+
 
 class ProfileForm(forms.ModelForm):
     avatar = forms.ImageField(widget=forms.FileInput())
